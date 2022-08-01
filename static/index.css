@@ -1,14 +1,39 @@
-*{
+body, div, textarea{
     padding: 0;
     margin: 0;
+    min-height: 85%;
+    font-family: Roboto, Arial, sans-serif;
+    line-height: 15px;
+    color: #667;
 }
 
 header{
     text-align: center;
     margin-top: 20px;
-}  
+    font-size: 20px;
+    font-weight: 400;
+}
 
 .form-container{
-    text-align: center;
-    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+#create-server{
+    width: auto;
+    padding: 5px;
+    color: black;
+    border: none;
+    background-color: greenyellow;
+}
+
+#remove-server{
+    width: auto;
+    padding: 5px;
+    color: white;
+    border: none;
+    background-color: red;
 }

@@ -17,9 +17,11 @@
             <div class="form-content">
                 <ul>
                     <li>Name:</li>
-                        <input type="text">
+                        <input type="text" name="name" required>
                     <li>Date:</li>
-                        <input type="text">
+                        <input type="date" name="date" id="date" required>
+                    <li>Time:</li>
+                        <input type="time" name="time" id="time" min="01:00" max="12:00">
                     <li>Server</li>
                     <input type="radio" id="small-db" name="database">
                         <label for="small-db">Small db</label>
@@ -38,12 +40,15 @@
                     <br>
                     <p for="comments">Comments:</p>
                     <textarea name="comments" id="comments" cols="30" rows="20"></textarea>
-
-
+                    <div class="create-btn">
+                        <button onclick="createServer()" id="create-server">Create Server</button>
+                    </div>
+                    <div class="remove-btn">
+                        <button onclick="createServer()" id="remove-server">Remove</button>
+                    </div>
                 </ul>
             </div>
-        </form>
-        
+        </form>    
     </div>
     
 <script src="index.js"></script>
