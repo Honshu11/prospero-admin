@@ -14,7 +14,6 @@ function handleRequest(request, response){
         response.write("<h1>Hello World</h1>");
         response.end();
     } else {
-        response.write("404 file not found");
         response.writeHead(404);
         response.end();
     }
