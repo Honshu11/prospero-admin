@@ -13,7 +13,13 @@ function handleRequest(request, response){
         response.writeHead(200);
         response.write("<h1>Hello World</h1>");
         response.end();
-    } else {
+    }
+    
+    else if(request.url == "/api/server" && request.method == "POST"){
+        
+    }
+    
+    else {
         response.writeHead(404);
         response.end();
     }

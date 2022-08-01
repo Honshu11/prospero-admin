@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';">
     <link rel="stylesheet" href="index.css">
     <title>Propsero Admin Tool</title>
 </head>
@@ -16,9 +18,11 @@
         <form action="" class="main-form">
             <div class="form-content">
                 <ul>
-                    <li>Name:</li>
+                    <li>
+                        <label for="name">Name:</label>
                         <input type="text" name="name" required>
-                    <li>Date:</li>
+                    </li>
+                    <li>Date:</li> //TODO: update look at line 19-22 and update remaining.
                         <input type="date" name="date" id="date" required>
                     <li>Time:</li>
                         <input type="time" name="time" id="time" min="01:00" max="12:00">
@@ -54,3 +58,4 @@
 <script src="index.js"></script>
 </body>
 </html>
+
