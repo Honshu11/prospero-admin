@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self' 143.198.138.219;"> 
+    content="default-src 'self' 143.198.138.219;">
     <link rel="stylesheet" href="index.css">
     <title>Propsero Admin Tool</title>
 </head>
@@ -22,18 +22,33 @@
                         <label for="name">Name:</label>
                         <input type="text" name="name" required>
                     </li>
-                    <li>Date:</li> //TODO: update look at line 19-22 and update remaining.
+                    <li>
+                        <label for="date">Date:</label>
                         <input type="date" name="date" id="date" required>
-                    <li>Time:</li>
-                        <input type="time" name="time" id="time" min="01:00" max="12:00">
-                    <li>Server</li>
-                    <input type="radio" id="small-db" name="database">
-                        <label for="small-db">Small db</label>
-                    <input type="radio" id="medium-db" name="database">
-                        <label for="medium-db">Medium db</label>
-                    <input type="radio" id="large-db" name="database">
-                        <label for="large-db">Large db</label>
+
+                    </li>
+                    <li>
+                        <label for="time">Time:</label>
+                        <input type="time" name="time" id="time">
+                    </li>
+
+                    <p>Server: </p>
+                    
+                    <li>
+                        <label for="small-db">Small Server</label>
+                        <input type="radio" id="small-db" name="small-db">
+                    </li>
+                    <li>
+                        <label for="medium-db">Medium Server</label>
+                        <input type="radio" id="medium-db" name="medium-db">
+                    </li>
+                    <li>
+                        <label for="large-db">Large Server</label>
+                        <input type="radio" name="large-db" id="large-db">
+                    </li>
+
                     <br>
+                    
                     <label for="server">Option</label>
                     <select name="server" id="server">
                         <option value="one">--Option 1--</option>

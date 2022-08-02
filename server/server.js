@@ -15,7 +15,7 @@ function handleRequest(request, response){
         response.end();
     }
     
-    else if(request.url == "/api/server" && request.method == "POST"){
+    else if(request.url == "/api/server"){ 
         response.writeHead(200, {
             'Access-Control-Allow-Origin': '*',
         });
@@ -27,3 +27,5 @@ function handleRequest(request, response){
         response.end();
     }
 }
+
+//line18:  && request.method == "POST"
