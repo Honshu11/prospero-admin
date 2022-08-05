@@ -14,12 +14,12 @@ function createServer(data){
 }
 
 function registerStaticEventHandlers(){
-    var form = document.querySelector('form[name="new-server"]'); //name equals attribute value
+    let form = document.querySelector('form[name="new-server"]'); //name equals attribute value
     form.addEventListener("submit", function(event){
         event.preventDefault();
-        var nameElement = form.querySelector('[name="name"]');
-        var name = nameElement.value;
-        var data = {};
+        let nameElement = form.querySelector('[name="name"]');
+        let name = nameElement.value;
+        let data = {};
         data.name = name;
         createServer(data);
     })
