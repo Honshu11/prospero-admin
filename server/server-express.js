@@ -5,8 +5,8 @@ app.get('/', function(request, response){
     response.send("Hello World");
 });
 
-app.get('/server/1234', function(request, response){
-    response.send("Server 1234");
+app.get('/server/:id', function(request, response){
+    response.send("Server " + request.params.id);
 })
 
 app.listen(80);
