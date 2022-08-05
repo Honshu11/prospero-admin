@@ -3,6 +3,9 @@ var mongodb = require('mongodb');
 var app = express();
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 
+
+//ROUTES
+
 app.get('/', function(request, response){
     response.send("Hello World");
 });
@@ -18,6 +21,15 @@ app.post('/api/servers', function(request, response){ //promise
     }).catch(function(){
         response.status(500); //
     });
+})
+
+app.get('/api/servers', function(request, response){
+    db.collection('servers').find({}).then(function(serverData){
+        response.status(200);
+        response.send(serverData);
+    }).catch(function(){
+        response.status(500);
+    })
 })
 
 app.listen(80);
