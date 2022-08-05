@@ -24,7 +24,7 @@ app.post('/api/servers', function(request, response){ //promise
 })
 
 app.get('/api/servers', function(request, response){
-    db.collection('servers').find().then(function(serverData){
+    db.collection('servers').find().toArray().then(function(serverData){
         response.status(200);
         response.send(serverData);
     }).catch(function(){
