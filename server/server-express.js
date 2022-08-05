@@ -1,5 +1,5 @@
 var express = require('express');
-var mongoDb = require('mongodb');
+var mongodb = require('mongodb');
 var app = express();
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 
