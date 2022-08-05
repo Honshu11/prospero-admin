@@ -7,8 +7,10 @@ const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 
 //ROUTES
 
-app.get('/', function(request, response){
-    response.send(fs.readFileSync('../static/index.html').toString());
+app.get('/:filename', function(request, response){
+    //response.send(fs.readFileSync('../static/index.html').toString());
+    response.send(fs.readFileSync('../static/' + request.params.filename).toString());
+
 });
 
 app.get('/server/:id', function(request, response){
