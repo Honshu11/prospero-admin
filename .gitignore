@@ -1,2 +1,2 @@
-static/quixlab-main
 server/node_modules
+!/static/quixlab-main/theme/css/style.css
