@@ -1,2 +1,3 @@
 server/node_modules
-!/static/quixlab-main/theme/css/style.css
+/static/quixlab-main/
+/static/pico-master/
