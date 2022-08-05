@@ -1,13 +1,14 @@
-var express = require('express');
-var mongodb = require('mongodb');
-var app = express();
+const express = require('express');
+const mongodb = require('mongodb');
+const fs = require('fs');
+const app = express();
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 
 
 //ROUTES
 
 app.get('/', function(request, response){
-    response.send("Hello World");
+    response.send(fs.readFileSync('../static/index.html'));
 });
 
 app.get('/server/:id', function(request, response){
