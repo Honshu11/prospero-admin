@@ -1,9 +1,13 @@
 const express = require('express');
 const mongodb = require('mongodb');
+const bodyParser = require('body-parse');
 const fs = require('fs');
 const app = express();
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 
+
+
+app.use(bodyParser.json());
 
 //ROUTES
 
@@ -30,7 +34,8 @@ app.get('/server/:id', function(request, response){
 
 app.post('/api/servers', function(request, response){ //promise
     console.log("POST api/servers: " + request);
-    db.collection('servers').insertOne({name: 'test server'}).then(function(serverData){
+    console.log(request.body);
+    db.collection('servers').insertOne({name: request.body.name}).then(function(serverData){
         response.status(201); //returns connection and addition to something
         response.send(serverData);
     }).catch(function(){
