@@ -1,6 +1,6 @@
 const express = require('express');
 const mongodb = require('mongodb');
-const bodyParser = require('body-parse');
+const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
