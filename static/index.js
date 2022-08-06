@@ -21,6 +21,17 @@ function createServer(data){
     })
 }
 
+function fetchServerList(){
+    fetch("http://143.198.138.219/api/servers").then(function(response){
+        if(response.ok){
+            return response.json();
+        }
+    }).then(function(data){
+        console.log(data);
+        document.querySelector('#server-list').innerHTML = data;
+    })
+}
+
 function registerStaticEventHandlers(){
     let form = document.querySelector('form[name="new-server"]'); //name equals attribute value
     form.addEventListener("submit", function(event){
@@ -34,3 +45,4 @@ function registerStaticEventHandlers(){
 }
 
 registerStaticEventHandlers();
+fetchServerList();
