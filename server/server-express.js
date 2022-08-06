@@ -7,9 +7,15 @@ const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 
 //ROUTES
 
-app.get('/:filename', function(request, response){
+app.get('/:filename', function(request, response){ //gets all static resource
     //response.send(fs.readFileSync('../static/index.html').toString());
-    response.send(fs.readFileSync('../static/' + request.params.filename).toString());
+    try{
+        response.send(fs.readFileSync('../static/' + request.params.filename).toString());
+    }
+    catch(error){
+        response.sendStatus(404);
+        console.log("404 static resource not found: " + error);
+    }
 });
 
 
