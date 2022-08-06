@@ -7,7 +7,7 @@ const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 
 
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({type: '*/*'}));
 
 //ROUTES
 
