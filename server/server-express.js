@@ -29,6 +29,7 @@ app.get('/server/:id', function(request, response){
 })
 
 app.post('/api/servers', function(request, response){ //promise
+    console.log("POST api/servers: " + request);
     db.collection('servers').insertOne({name: 'test server'}).then(function(serverData){
         response.status(201); //returns connection and addition to something
         response.send(serverData);
