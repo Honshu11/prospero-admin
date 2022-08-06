@@ -32,7 +32,7 @@ function fetchServerList(){
         data.forEach(function(server){
             var element = document.createElement("p");
             element.innerHTML = server.name;
-
+            container.appendChild(element);
         })
     })
 }
