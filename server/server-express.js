@@ -12,10 +12,6 @@ app.get('/:filename', function(request, response){
     response.send(fs.readFileSync('../static/' + request.params.filename).toString());
 });
 
-app.get('/quixlab-main/theme/css/style.css', function(request, response){
-    //response.send(fs.readFileSync('../static/index.html').toString());
-    response.send(fs.readFileSync('../static/quixlab-main/theme/css/style.css').toString());
-});
 
 app.get('/', function(request, response){
     //response.send(fs.readFileSync('../static/index.html').toString());
