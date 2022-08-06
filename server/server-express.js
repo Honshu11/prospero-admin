@@ -34,7 +34,7 @@ app.post('/api/servers', function(request, response){ //promise
         response.status(201); //returns connection and addition to something
         response.send(serverData);
     }).catch(function(){
-        response.status(500); //
+        response.sendStatus(500);
     });
 })
 
@@ -43,7 +43,7 @@ app.get('/api/servers', function(request, response){
         response.status(200);
         response.send(serverData);
     }).catch(function(){
-        response.status(500);
+        response.sendStatus(500);
     })
 })
 
