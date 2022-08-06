@@ -28,7 +28,12 @@ function fetchServerList(){
         }
     }).then(function(data){
         console.log(data);
-        document.querySelector('#server-list').innerHTML = data;
+        var container = document.querySelector('#server-list');
+        data.forEach(function(server){
+            var element = document.createElement("p");
+            element.innerHTML = server.name;
+
+        })
     })
 }
 
