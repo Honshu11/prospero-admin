@@ -10,6 +10,14 @@ function createServer(data){
     fetch("https://143.198.138.219/api/servers", { //API fetch request
         method: "POST",
         body: JSON.stringify(data)
+    }).then(function(response){
+        if(response.ok){
+            return response.json();
+        }else{
+            console.log(response);
+        }      
+    }).then(function(data){
+        console.log(data);
     })
 }
 
