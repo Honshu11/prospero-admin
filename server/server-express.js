@@ -56,7 +56,7 @@ app.get('/api/servers', function(request, response){
 app.get('/api/droplets', function(request, response){
     fetch('https://api.digitalocean.com/v2/droplets', {
         headers: {
-            'Authorization': 'Bearer ' + process.env.DIGITALOCEAN_TOKEN;
+            'Authorization': 'Bearer ' + process.env.DIGITALOCEAN_TOKEN
         }
     }).then(function(response){
         if(response.ok){
