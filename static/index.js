@@ -49,5 +49,22 @@ function registerStaticEventHandlers(){
     })
 }
 
+function fetchDropletList(){
+    fetch("http://143.198.138.219/api/droplets").then(function(response){
+        if(response.ok){
+            return response.json();
+        }
+    }).then(function(data){
+        console.log(data);
+        var container = document.querySelector('#droplet-list');
+        data.forEach(function(server){
+            var element = document.createElement("p");
+            element.innerHTML = server;
+            container.appendChild(element);
+        })
+    })
+}
+
 registerStaticEventHandlers();
 fetchServerList();
+fetchDropletList();

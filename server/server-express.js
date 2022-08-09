@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
+require('isomorphic-fetch');
 
 
 
@@ -49,6 +50,18 @@ app.get('/api/servers', function(request, response){
         response.send(serverData);
     }).catch(function(){
         response.sendStatus(500);
+    })
+})
+
+app.get('/api/droplets', function(request, response){
+    fetch('https://api.digitalocean.com/v2/droplets').then(function(response){
+        if(response.ok){
+            return response.json();
+        }
+    }).then(function(data){
+        console.log(data);
+        response.status(200);
+        response.send(data);
     })
 })
 
