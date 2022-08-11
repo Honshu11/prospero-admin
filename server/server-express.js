@@ -3,6 +3,7 @@ const mongodb = require('mongodb');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
+const child_process = require('child_process');
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 require('isomorphic-fetch');
 
@@ -66,6 +67,14 @@ app.get('/api/droplets', function(request, response){
         console.log(data);
         response.status(200);
         response.send(data);
+    })
+})
+
+app.get('/api/github-branches', function(request, response){
+    const gitProcess = child_process.spawn(`git ls-remote --heads ${request.params.repo_url}`);
+    gitProcess.stdout.on('data', function(data){
+        response.status(200);
+        response.send(data.toString());
     })
 })
 
