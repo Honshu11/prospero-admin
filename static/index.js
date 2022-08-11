@@ -1,3 +1,7 @@
+const { response } = require("express");
+
+const apiEndPoint = "http://143.198.138.219/api/";
+
 
 function createServer(data){
     let createButtonTest = document.getElementById("create-server");
@@ -41,16 +45,27 @@ function registerStaticEventHandlers(){
     let form = document.querySelector('form[name="new-server"]'); //name equals attribute value
     form.addEventListener("submit", function(event){
         event.preventDefault();
-        let nameElement = form.querySelector('[name="name"]');
+        let nameElement = form.querySelector('[name="repo_url"]');
         let name = nameElement.value;
         let data = {};
-        data.name = name;
+        data.repo_url = name;
         createServer(data);
     })
+
+    let inputElement = form.querySelector('[name="repo_url"]');
+    inputElement.addEventListener('change', function(event){
+        const response = await fetch(`${apiEndPoint}github-branches`);
+        if(response.ok){
+            const data = await response.json();
+            console.log(data);
+        }
+        
+    })
+
 }
 
 function fetchDropletList(){
-    fetch("http://143.198.138.219/api/droplets").then(function(response){
+    fetch(`${apiEndPoint}droplets`).then(function(response){
         if(response.ok){
             return response.json();
         }
