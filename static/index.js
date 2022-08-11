@@ -41,9 +41,9 @@ function fetchServerList(){
     })
 }
 
-function registerStaticEventHandlers(){
+async function registerStaticEventHandlers(){
     let form = document.querySelector('form[name="new-server"]'); //name equals attribute value
-    form.addEventListener("submit", function(event){
+    form.addEventListener("submit", async function(event){
         event.preventDefault();
         let nameElement = form.querySelector('[name="repo_url"]');
         let name = nameElement.value;
@@ -53,7 +53,7 @@ function registerStaticEventHandlers(){
     })
 
     let inputElement = form.querySelector('[name="repo_url"]');
-    inputElement.addEventListener('change', function(event){
+    inputElement.addEventListener('change', async function(event){
         const response = await fetch(`${apiEndPoint}github-branches`);
         if(response.ok){
             const data = await response.json();
