@@ -56,7 +56,7 @@ async function registerStaticEventHandlers(){
         let payload = {
             repo_url: inputElement.value
         }
-        const response = await fetch(`${apiEndPoint}github-branches`, {
+        const response = await fetch(`${apiEndPoint}github-branches?repo_url=${encodeURIComponent(payload.repo_url)}`, {
             body: JSON.stringify(payload)
         });
         if(response.ok){
