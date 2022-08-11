@@ -59,7 +59,8 @@ function fetchDropletList(){
         var container = document.querySelector('#droplet-list');
         data.droplets.forEach(function(server){
             var element = document.createElement("p");
-            element.innerHTML = `${server.name} ${server.created_at} ${server.size_slug}`;
+            var timestamp = new Date(server.created_at);
+            element.innerHTML = `${server.name} ${timestamp} ${server.size_slug}`;
             container.appendChild(element);
         })
     })
