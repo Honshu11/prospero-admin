@@ -71,7 +71,7 @@ app.get('/api/droplets', function(request, response){
 })
 
 app.get('/api/github-branches', function(request, response){
-    const gitProcess = child_process.spawn(`git ls-remote --heads ${request.params.repo_url}`);
+    const gitProcess = child_process.spawn(`git ls-remote --heads ${request.body.repo_url}`);
     gitProcess.stdout.on('data', function(data){
         response.status(200);
         response.send(data.toString());
