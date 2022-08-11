@@ -1,4 +1,3 @@
-const { response } = require("express");
 
 const apiEndPoint = "http://143.198.138.219/api/";
 
