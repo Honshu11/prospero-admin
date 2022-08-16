@@ -78,12 +78,13 @@ app.get('/api/github-branches', function(request, response){
     })
     gitProcess.on('exit', function(code){
         if(!code){
-            response.status(400);
-            response.send('Invalid git repo url');
+            console.log(code);
         }
     })
     gitProcess.on('error', function(error){
-        console.log(error);
+        console.log(`${request.ip} ${error}`);
+        response.status(400);
+        response.send('Invalid git repo url');
     })
 
     
