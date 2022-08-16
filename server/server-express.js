@@ -82,6 +82,11 @@ app.get('/api/github-branches', function(request, response){
             response.send('Invalid git repo url');
         }
     })
+    gitProcess.on('error', function(error){
+        console.log(error);
+    })
+
+    
 })
 
 app.listen(80);
