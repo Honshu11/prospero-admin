@@ -72,7 +72,7 @@ app.get('/api/droplets', function(request, response){
 
 app.get('/api/github-branches', function(request, response){
     
-    const gitProcess = child_process.spawn(`/usr/bin/git ls-remote --heads ${request.query.repo_url}`, { //hard coded, 
+    const gitProcess = child_process.spawn('/usr/bin/git', ['ls-remote', '--heads', request.query.repo_url], { 
         
     });
     gitProcess.stdout.on('data', function(data){
