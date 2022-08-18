@@ -71,7 +71,10 @@ app.get('/api/droplets', function(request, response){
 })
 
 app.get('/api/github-branches', function(request, response){
-    const gitProcess = child_process.spawn(`git ls-remote --heads ${request.query.repo_url}`);
+    
+    const gitProcess = child_process.spawn(`git ls-remote --heads ${request.query.repo_url}`, {
+        uid: process.getuid(),
+    });
     gitProcess.stdout.on('data', function(data){
         response.status(200);
         response.send(data.toString());
@@ -87,7 +90,6 @@ app.get('/api/github-branches', function(request, response){
         response.send('Invalid git repo url');
     })
 
-    
 })
 
 app.listen(80);
