@@ -14,7 +14,6 @@ app.use(bodyParser.json({type: '*/*'}));
 //ROUTES
 
 app.get('/:filename', function(request, response){ //gets all static resource
-    //response.send(fs.readFileSync('../static/index.html').toString());
     try{
         response.send(fs.readFileSync('../static/' + request.params.filename).toString());
     }
@@ -26,7 +25,6 @@ app.get('/:filename', function(request, response){ //gets all static resource
 
 
 app.get('/', function(request, response){
-    //response.send(fs.readFileSync('../static/index.html').toString());
     response.send(fs.readFileSync('../static/index.html').toString());
 });
 
