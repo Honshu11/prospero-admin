@@ -42,7 +42,7 @@ function fetchServerList(){
 
 async function registerStaticEventHandlers(){
     let form = document.querySelector('form[name="new-server"]'); //name equals attribute value
-    form.addEventListener("submit", async function(event){
+    form.addEventListener('submit', async function(event){
         event.preventDefault();
         let nameElement = form.querySelector('[name="repo_url"]');
         let name = nameElement.value;
@@ -50,6 +50,8 @@ async function registerStaticEventHandlers(){
         data.repo_url = name;
         createServer(data);
     })
+
+    // Listening to user input on Git Repo URL 
 
     let inputElement = form.querySelector('[name="repo_url"]');
     inputElement.addEventListener('change', async function(event){
@@ -79,7 +81,7 @@ function fetchDropletList(){
         console.log(data);
         var container = document.querySelector('#droplet-list');
         data.droplets.forEach(function(server){
-            var element = document.createElement("p");
+            var element = document.createElement('p');
             var timestamp = new Date(server.created_at);
             element.innerHTML = `${server.name} ${timestamp} ${server.size_slug}`;
             container.appendChild(element);
