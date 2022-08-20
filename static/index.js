@@ -83,7 +83,7 @@ function fetchDropletList(){
         data.droplets.forEach(function(server){
             var element = document.createElement('p');
             var timestamp = new Date(server.created_at);
-            element.innerHTML = `${server.name} ${timestamp} ${server.size_slug}`;
+            element.innerHTML = `${server.name} || ${timestamp} || ${server.size_slug} || ${server.memory} || ${server.status}`;
             container.appendChild(element);
         })
     })
