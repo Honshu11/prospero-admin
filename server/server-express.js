@@ -94,7 +94,7 @@ app.get('/api/github-branches', function(request, response){
 app.listen(80);
 
 function processBranchList(payload){
-    var data = JSON.parse(payload.toString());
+    var data = payload.toString();
     console.log(data);
-    
+
 }
