@@ -96,7 +96,8 @@ app.listen(80);
 function processBranchList(payload){
     var data = payload.toString();
     console.log('data: ', data);
-    var branchEntries = data.split('\n').slice(0, data.length - 1);
+    var branchEntries = data.split('\n');
+    branchEntries = branchEntries.slice(0, branchEntries.length - 1);
     console.log('branchEntries: ', branchEntries);
     var branches = branchEntries.map(function(entry){
         console.log('entry: ', entry);
