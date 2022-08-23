@@ -100,9 +100,10 @@ function processBranchList(payload){
     branchEntries = branchEntries.slice(0, branchEntries.length - 1);
     console.log('branchEntries: ', branchEntries);
     var branches = branchEntries.map(function(entry){
+        var parts = entry.split('/');
         console.log('entry: ', entry);
-        return entry.split('/')[entry.length -1];
+        return parts[parts.length -1];
          //picking out last item in array list.
     })
-    console.log('branches: ', branches);
+    console.log('branches: ', branches); 
 }
