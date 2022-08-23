@@ -56,13 +56,13 @@ async function registerStaticEventHandlers(){
     let inputElement = form.querySelector('[name="repo_url"]');
     inputElement.addEventListener('change', async function(event){
         let payload = {
-            repo_url: inputElement.value
+            repo_url: inputElement.value,
         }
         const response = await fetch(`${apiEndPoint}github-branches?repo_url=${encodeURIComponent(payload.repo_url)}`, {
             //body: JSON.stringify(payload)
         });
         if(response.ok){
-            const data = await response.json();
+            const data = await response.text();
             console.log(data);
         } else {
             form.querySelector('.message').textContent = await response.text();
