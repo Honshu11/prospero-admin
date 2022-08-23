@@ -74,6 +74,7 @@ app.get('/api/github-branches', function(request, response){
         
     });
     gitProcess.stdout.on('data', function(data){
+        processBranchList(data);
         response.status(200);
         console.log(data);
         response.send(data.toString());
@@ -91,3 +92,9 @@ app.get('/api/github-branches', function(request, response){
 
 })
 app.listen(80);
+
+function processBranchList(payload){
+    var data = JSON.parse(payload.toString());
+    console.log(data);
+    
+}
