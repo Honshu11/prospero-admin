@@ -96,5 +96,9 @@ app.listen(80);
 function processBranchList(payload){
     var data = payload.toString();
     console.log(data);
-
+    var branchEntries = data.split('\n');
+    var branches = branchEntries.map(function(entry){
+        return data.split('/')[data.length -1]; //picking out last item in array list.
+    })
+    console.log(branches);
 }
