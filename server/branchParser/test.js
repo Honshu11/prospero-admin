@@ -1,3 +1,5 @@
+const assert = require("assert");
+
 function runTest(){
     describe('branch parser', function(){
         it('parses raw branch list into json array', function(){

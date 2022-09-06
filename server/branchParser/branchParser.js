@@ -1,4 +1,3 @@
-const assert = require("assert");
 
 function processBranchList(payload){
     var data = payload.toString();
