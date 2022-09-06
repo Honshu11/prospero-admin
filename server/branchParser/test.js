@@ -1,4 +1,5 @@
 const assert = require("assert");
+const { processBranchList } = require("./branchParser");
 
 function runTest(){
     describe('branch parser', function(){
