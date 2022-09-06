@@ -74,10 +74,10 @@ app.get('/api/github-branches', function(request, response){
         
     });
     gitProcess.stdout.on('data', function(data){
-        processBranchList(data);
+        var branches = processBranchList(data);
         response.status(200);
-        console.log(data);
-        response.send(data.toString());
+        console.log(branches);
+        response.send(branches.toString());
     })
     gitProcess.on('exit', function(code){
         if(!code){
@@ -105,5 +105,6 @@ function processBranchList(payload){
         return parts[parts.length -1];
          //picking out last item in array list.
     })
-    console.log('branches: ', branches); 
+    console.log('branches: ', branches);
+    return branches; 
 }
