@@ -33,8 +33,8 @@ app.get('/server/:id', function(request, response){
 })
 
 app.post('/api/servers', function(request, response){ //promise
-    console.log("POST api/servers: " + request);
-    console.log(request.body);
+    // console.log("POST api/servers: " + request);
+    // console.log(request.body);
     db.collection('servers').insertOne({name: request.body.name}).then(function(serverData){
         response.status(201); //returns connection and addition to something
         response.send(serverData);
@@ -62,7 +62,7 @@ app.get('/api/droplets', function(request, response){
             return response.json();
         }
     }).then(function(data){
-        console.log(data);
+        //console.log(data);
         response.status(200);
         response.send(data);
     })
@@ -76,12 +76,12 @@ app.get('/api/github-branches', function(request, response){
     gitProcess.stdout.on('data', function(data){
         var branches = processBranchList(data);
         response.status(200);
-        console.log(branches);
+        //console.log(branches);
         response.send(branches.toString());
     })
     gitProcess.on('exit', function(code){
         if(!code){
-            console.log(code);
+            // console.log(code);
         }
     })
     gitProcess.on('error', function(error){
@@ -92,19 +92,3 @@ app.get('/api/github-branches', function(request, response){
 
 })
 app.listen(80);
-
-function processBranchList(payload){
-    var data = payload.toString();
-    console.log('data: ', data);
-    var branchEntries = data.split('\n');
-    branchEntries = branchEntries.slice(0, branchEntries.length - 1);
-    console.log('branchEntries: ', branchEntries);
-    var branches = branchEntries.map(function(entry){
-        var parts = entry.split('/');
-        console.log('entry: ', entry);
-        return parts[parts.length -1];
-         //picking out last item in array list.
-    })
-    console.log('branches: ', branches);
-    return branches; 
-}
