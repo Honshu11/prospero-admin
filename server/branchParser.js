@@ -36,7 +36,7 @@ function runTest(){
         it('parses raw branch list into json array', function(){
             assert.equal(processBranchList(testInput), testOutput);
         })
-    )
+    })
      //testing input equals testoutput
 }
 
