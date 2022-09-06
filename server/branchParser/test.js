@@ -21,7 +21,7 @@ function runTest(){
                 'interface_top_dataout',
                 'main'
             ]
-            assert.equal(processBranchList(testInput), testOutput);
+            assert.equal(processBranchList(JSON.stringify(testInput)), JSON.stringify(testOutput));
         })
     })
     
