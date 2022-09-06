@@ -6,7 +6,7 @@ const app = express();
 const child_process = require('child_process');
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 require('isomorphic-fetch');
-
+const { processBranchList } = require('branchParser');
 
 
 app.use(bodyParser.json({type: '*/*'}));

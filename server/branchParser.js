@@ -28,3 +28,5 @@ function runTest(){
       ]
     // assert processBranchList()
 }
+
+exports.processBranchList = processBranchList;
