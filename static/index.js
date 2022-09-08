@@ -91,7 +91,7 @@ function fetchDropletList(){
 }
 
 function updateBranchDropDown(branches){
-    var form = document.querySelector('form[name="new-sever"]');
+    var form = document.querySelector('form[name="new-server"]');
     var dropdown = form.querySelector('select[name="branch"]');
     branches.forEach(function(branch){
         var option = document.createElement('option');
