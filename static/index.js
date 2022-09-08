@@ -40,6 +40,8 @@ function fetchServerList(){
     })
 }
 
+var repo_url;
+
 async function registerStaticEventHandlers(){
     let form = document.querySelector('form[name="new-server"]'); //name equals attribute value
     form.addEventListener('submit', async function(event){
@@ -53,7 +55,7 @@ async function registerStaticEventHandlers(){
     var dropdown = form.querySelector('[name="branches"]');
     dropdown.addEventListener('change', async function(event){
         var branch = dropdown.value;
-        var url = form.repo_url.replace('https://github.com/', 'https://raw.githubusercontent.com/');
+        var url = repo_url.replace('https://github.com/', 'https://raw.githubusercontent.com/');
         url = url + '/' + branch + '/verilog/rtl/user_proj_example.v';
         var response = await fetch(url);
         if(response.ok){
@@ -66,7 +68,7 @@ async function registerStaticEventHandlers(){
 
     let inputElement = form.querySelector('[name="repo_url"]');
     inputElement.addEventListener('change', async function(event){
-        form.repo_url = inputElement.value;
+        repo_url = inputElement.value;
         let payload = {
             repo_url: inputElement.value,
         }
