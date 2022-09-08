@@ -77,7 +77,7 @@ app.get('/api/github-branches', function(request, response){
         var branches = processBranchList(data);
         response.status(200);
         //console.log(branches);
-        response.send(branches.toString());
+        response.send(JSON.stringify(branches));
     })
     gitProcess.on('exit', function(code){
         if(!code){

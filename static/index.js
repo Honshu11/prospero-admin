@@ -62,7 +62,7 @@ async function registerStaticEventHandlers(){
             //body: JSON.stringify(payload)
         });
         if(response.ok){
-            const data = await response.text();
+            const data = await response.json();
             console.log(data);
         } else {
             form.querySelector('.message').textContent = await response.text();
