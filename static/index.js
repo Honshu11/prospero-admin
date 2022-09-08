@@ -64,6 +64,7 @@ async function registerStaticEventHandlers(){
         if(response.ok){
             const data = await response.json();
             console.log(data);
+            updateBranchDropDown();
         } else {
             form.querySelector('.message').textContent = await response.text();
         }
@@ -86,6 +87,16 @@ function fetchDropletList(){
             element.innerHTML = `${server.name} || ${timestamp} || ${server.size_slug} || ${server.memory}/mb || ${server.status}`;
             container.appendChild(element);
         })
+    })
+}
+
+function updateBranchDropDown(branches){
+    var form = document.querySelector('form[name="new-sever"]');
+    var dropdown = form.querySelector('select[name="branch"]');
+    branches.forEach(function(branch){
+        var option = document.createElement('option');
+        option.textContent = branch;
+        dropdown.appendChild(option);
     })
 }
 
