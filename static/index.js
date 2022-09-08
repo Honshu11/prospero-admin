@@ -61,6 +61,8 @@ async function registerStaticEventHandlers(){
         if(response.ok){
             var sourceCode = await response.text();
             console.log(sourceCode);
+            var preElement = form.querySelector('[name="preview-source"]');
+            preElement.textContent = sourceCode;
         }
     })
 
