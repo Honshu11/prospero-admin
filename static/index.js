@@ -97,6 +97,7 @@ function updateBranchDropDown(branches){
         var option = document.createElement('option');
         option.textContent = branch;
         dropdown.appendChild(option);
+        console.log(form, option, dropdown);
     })
 }
 
