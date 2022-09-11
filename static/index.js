@@ -55,9 +55,8 @@ async function registerStaticEventHandlers(){
     var dropdown = form.querySelector('[name="branches"]');
     dropdown.addEventListener('change', async function(event){
         var branch = dropdown.value;
-        var url = repo_url.replace('https://github.com/', 'https://raw.githubusercontent.com/');
-        url = `${url}/${branch}/verilog/rtl/user_proj_example.v`;
-        //url = url + '/' + branch + '/verilog/rtl/user_proj_example.v'; //
+        var url = repo_url.replace('https://github.com/', 'https://raw.githubusercontent.com/');   
+        url = url + '/' + branch + '/verilog/rtl/user_proj_example.v'; //url = `${url}/${branch}/verilog/rtl/user_proj_example.v`;
         var response = await fetch(url);
         if(response.ok){
             var sourceCode = await response.text();
