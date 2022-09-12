@@ -70,7 +70,6 @@ app.get('/api/droplets', function(request, response){
 })
 
 app.get('/api/github-branches', function(request, response){
-    
     const gitProcess = child_process.spawn('git', ['ls-remote', '--heads', request.query.repo_url], {  
     });
     gitProcess.stdout.on('data', function(data){
@@ -79,10 +78,12 @@ app.get('/api/github-branches', function(request, response){
         //console.log(branches);
         response.send(JSON.stringify(branches));
     })
-    gitProcess.on('exit', function(code){
+    gitProcess.on('exit', function(code, signal){
+        console.log("exit", code);
+        console.log("signal", signal);
         if(!code){
             response.status(400);
-            response.send('Invalid git repo url');  // console.log(code);
+            response.send('Invalid git repo url');
         }
     })
     gitProcess.on('error', function(error){
