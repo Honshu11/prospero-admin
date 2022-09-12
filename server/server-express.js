@@ -19,7 +19,7 @@ app.get('/:filename', function(request, response){ //gets all static resource
     }
     catch(error){
         response.sendStatus(404);
-        console.log("404 static resource not found: " + error);
+        console.log("404 static resource not found: css error: " + error);
     }
 });
 
@@ -70,8 +70,7 @@ app.get('/api/droplets', function(request, response){
 
 app.get('/api/github-branches', function(request, response){
     
-    const gitProcess = child_process.spawn('git', ['ls-remote', '--heads', request.query.repo_url], { 
-        
+    const gitProcess = child_process.spawn('git', ['ls-remote', '--heads', request.query.repo_url], {  
     });
     gitProcess.stdout.on('data', function(data){
         var branches = processBranchList(data);
