@@ -6,7 +6,8 @@ const app = express();
 const child_process = require('child_process');
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 const { processBranchList } = require('./branchParser/branchParser');
-const { response } = require('express');
+const { response, application } = require('express');
+const { json } = require('body-parser');
 require('isomorphic-fetch');
 
 
@@ -99,6 +100,7 @@ app.post('/api/simulations', function(request, response){
                 method: 'POST',
                 body: JSON.stringify(payload),
                 headers: {
+                    'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + process.env.DIGITALOCEAN_TOKEN
                 }
            })
