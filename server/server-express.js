@@ -81,7 +81,8 @@ app.get('/api/github-branches', function(request, response){
     })
     gitProcess.on('exit', function(code){
         if(!code){
-            // console.log(code);
+            response.status(400);
+            response.send('Invalid git repo url');  // console.log(code);
         }
     })
     gitProcess.on('error', function(error){
@@ -90,10 +91,6 @@ app.get('/api/github-branches', function(request, response){
         response.send('Invalid git repo url');
     })
 
-})
-
-app.get('../static/favicon.ico', function(request, response){ //handle ENOENT error log
-    response.status(204); //no content, files no longer there.
 })
 
 
