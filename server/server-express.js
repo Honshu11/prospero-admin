@@ -79,7 +79,7 @@ app.post('/api/simulations', function(request, response){
         if(response.ok){
             return response.json();
         }
-    }).then(function(data){
+    }).then(async function(data){
         //console.log(data);
         //response.status(200);
         //response.send(data);
