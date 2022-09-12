@@ -30,7 +30,7 @@ function fetchServerList(){
             return response.json();
         }
     }).then(function(data){
-        console.log(`fetchServerList function log -- ${data}`);
+        console.log(`${data}`); //fetchServerList log
         var container = document.querySelector('#server-list');
         data.forEach(function(server){
             var element = document.createElement("p");

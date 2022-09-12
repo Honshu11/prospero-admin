@@ -14,7 +14,7 @@ header {
     font-weight: 400;
 }
 
-.form-container {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
