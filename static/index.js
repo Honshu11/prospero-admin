@@ -81,9 +81,11 @@ async function registerStaticEventHandlers(){
             const data = await response.json();
             console.log(data);
             updateBranchDropDown(data);
-            form.querySelector('.message-error').textContent = "";
+            form.querySelector('.message').textContent = "";
+            form.querySelector('.message').classList.remove('error');
         } else {
-            form.querySelector('.message-error').textContent = await response.text();
+            form.querySelector('.message').textContent = await response.text();
+            form.querySelector('.message').classList.add('error')
         }
         
     })
