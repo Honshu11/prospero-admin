@@ -80,10 +80,11 @@ app.post('/api/simulations', function(request, response){
             return response.json();
         }
     }).then(async function(data){
-        //console.log(data);
+        console.log("response", data);
         //response.status(200);
         //response.send(data);
-        if(data.droplets){
+        if(data.droplets && data.droplets.length > 0){
+            console.log('data droplets', data);
             //TODO: handle case where server is already running.
 
         } else {
