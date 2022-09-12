@@ -90,7 +90,7 @@ app.post('/api/simulations', function(request, response){
 
         } else {
            var payload = {
-            "name": "simulation server",
+            "name": "pa.prospero.live", //use ip address
             "region": "nyc3",
             "size": "s-1vcpu-1gb",
             "image": "ubuntu-20-04-x64",
