@@ -69,6 +69,22 @@ app.get('/api/droplets', function(request, response){
     })
 })
 
+app.get('/api/simulations', function(request, response){
+    fetch('https://api.digitalocean.com/v2/droplets?tag_name=' + encodeURIComponent('sim'), {
+        headers: {
+            'Authorization': 'Bearer ' + process.env.DIGITALOCEAN_TOKEN
+        }
+    }).then(function(response){
+        if(response.ok){
+            return response.json();
+        }
+    }).then(function(data){
+        //console.log(data);
+        response.status(200);
+        response.send(data);
+    })
+})
+
 app.get('/api/github-branches', function(request, response){
     const gitProcess = child_process.spawn('git', ['ls-remote', '--heads', request.query.repo_url], {  
     });
