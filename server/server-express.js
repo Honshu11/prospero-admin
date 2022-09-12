@@ -6,6 +6,7 @@ const app = express();
 const child_process = require('child_process');
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
 const { processBranchList } = require('./branchParser/branchParser');
+const { response } = require('express');
 require('isomorphic-fetch');
 
 
@@ -90,4 +91,10 @@ app.get('/api/github-branches', function(request, response){
     })
 
 })
+
+app.get('../static/favicon.ico', function(request, response){ //handle ENOENT error log
+    response.status(204); //no content, files no longer there.
+})
+
+
 app.listen(80);
