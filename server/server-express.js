@@ -81,8 +81,26 @@ app.post('/api/simulations', function(request, response){
         }
     }).then(function(data){
         //console.log(data);
-        response.status(200);
-        response.send(data);
+        //response.status(200);
+        //response.send(data);
+        if(data.droplets){
+            //TODO: handle case where server is already running.
+
+        } else {
+           var payload = {
+            "name": "simulation server",
+            "region": "nyc3",
+            "size": "s-1vcpu-1gb",
+            "image": "ubuntu-20-04-x64",
+            "tags": ["sim"],     
+           }
+           var response = await fetch('https://api.digitalocean.com/v2/droplets', {
+                method: 'POST',
+                body: JSON.stringify(payload),
+           })
+           var data = await response.json();
+           console.log(data);
+        }
     })
 })
 
