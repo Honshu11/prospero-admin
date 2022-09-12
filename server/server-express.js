@@ -98,6 +98,9 @@ app.post('/api/simulations', function(request, response){
            var response = await fetch('https://api.digitalocean.com/v2/droplets', {
                 method: 'POST',
                 body: JSON.stringify(payload),
+                headers: {
+                    'Authorization': 'Bearer ' + process.env.DIGITALOCEAN_TOKEN
+                }
            })
            var data = await response.json();
            console.log(data);
