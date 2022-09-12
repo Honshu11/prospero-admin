@@ -24,6 +24,21 @@ function createServer(data){
     })
 }
 
+async function runSimulation(payload){
+    var response = await fetch("http://143.198.138.219/api/simulations", { //API fetch request
+        method: "POST",
+        body: JSON.stringify(payload)
+    })
+    
+    if(response.ok){
+        var data = await response.json()
+        
+    }else{
+        console.log(response);
+    }         
+    console.log(data);
+}
+
 function fetchServerList(){
     fetch("http://143.198.138.219/api/servers").then(function(response){
         if(response.ok){
@@ -50,7 +65,9 @@ async function registerStaticEventHandlers(){
         let name = nameElement.value;
         let data = {};
         data.repo_url = name;
-        createServer(data);
+        //createServer(data)
+        data.branch = form.querySelector('[name="branches"]').value;
+        runSimulation(data);
     })
     var dropdown = form.querySelector('[name="branches"]');
     dropdown.addEventListener('change', async function(event){
