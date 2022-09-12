@@ -79,12 +79,12 @@ app.post('/api/simulations', function(request, response){
         if(response.ok){
             return response.json();
         }
-    }).then(async function(data){
-        console.log("response", data);
+    }).then(async function(droplets){
+        console.log("response", droplets);
         //response.status(200);
         //response.send(data);
-        if(data.droplets && data.droplets.length > 0){
-            console.log('data droplets', data);
+        if(droplets.droplets && droplets.droplets.length > 0){
+            console.log('data droplets', droplets);
             //TODO: handle case where server is already running.
 
         } else {
@@ -102,8 +102,14 @@ app.post('/api/simulations', function(request, response){
                     'Authorization': 'Bearer ' + process.env.DIGITALOCEAN_TOKEN
                 }
            })
-           var data = await response.json();
-           console.log(data);
+           if(response.ok){
+            var server = await response.json();
+
+           } else {
+            console.log(response);
+           }
+           
+           console.log(server);
         }
     })
 })
