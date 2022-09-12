@@ -5,8 +5,8 @@ const fs = require('fs');
 const app = express();
 const child_process = require('child_process');
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
-require('isomorphic-fetch');
 const { processBranchList } = require('./branchParser/branchParser');
+require('isomorphic-fetch');
 
 
 app.use(bodyParser.json({type: '*/*'}));
@@ -19,7 +19,7 @@ app.get('/:filename', function(request, response){ //gets all static resource
     }
     catch(error){
         response.sendStatus(404);
-        console.log("404 static resource not found: css error: " + error);
+        console.log("404 static resource not found:" + error);
     }
 });
 
