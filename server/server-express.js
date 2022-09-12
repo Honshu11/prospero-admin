@@ -69,8 +69,8 @@ app.get('/api/droplets', function(request, response){
     })
 })
 
-app.get('/api/simulations', function(request, response){
-    console.log("GET simulations");
+app.post('/api/simulations', function(request, response){
+    console.log("POST simulations");
     fetch('https://api.digitalocean.com/v2/droplets?tag_name=' + encodeURIComponent('sim'), {
         headers: {
             'Authorization': 'Bearer ' + process.env.DIGITALOCEAN_TOKEN
