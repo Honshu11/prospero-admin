@@ -119,7 +119,7 @@ app.post('/api/simulations', function(request, response){
         }
 
 
-        console.log(request.body.sourceCode);
+        //console.log(request.body.sourceCode);
         var edaHostName = 'http://146.190.14.93';
         response = await fetch(edaHostName, {
         method: 'POST',
@@ -132,7 +132,7 @@ app.post('/api/simulations', function(request, response){
         }
         //data = await response.text();
         console.log(data);
-        console.log(server.networks);
+        //console.log(server.networks);
         
     })
 })
