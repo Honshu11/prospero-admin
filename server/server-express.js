@@ -116,21 +116,24 @@ app.post('/api/simulations', function(request, response){
            }
            
            console.log(server);
-           console.log(body.request.sourceCode);
-           var edaHostName = 'http://146.190.14.93';
-           response = await fetch(edaHostName, {
-            method: 'POST',
-            body: request.body.sourceCode,
-           })
-           if(response.ok){
-             data = await response.text();
-           } else {
-             console.log(response);
-           }
-           //data = await response.text();
-           console.log(data);
-           console.log(server.networks);
         }
+
+        
+        console.log(body.request.sourceCode);
+        var edaHostName = 'http://146.190.14.93';
+        response = await fetch(edaHostName, {
+        method: 'POST',
+        body: request.body.sourceCode,
+        })
+        if(response.ok){
+            data = await response.text();
+        } else {
+            console.log(response);
+        }
+        //data = await response.text();
+        console.log(data);
+        console.log(server.networks);
+        
     })
 })
 
