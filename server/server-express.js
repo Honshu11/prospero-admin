@@ -93,7 +93,7 @@ app.post('/api/simulations', function(request, response){
             "name": "pa.prospero.live", //use ip address
             "region": "sfo3",
             "size": "c-4",
-            "image": "eda-golden-22sep13"
+            "image": "eda-golden-22sep13",
             "tags": ["sim"],     
            }
            var response = await fetch('https://api.digitalocean.com/v2/droplets', {
