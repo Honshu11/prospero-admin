@@ -112,6 +112,7 @@ app.post('/api/simulations', function(request, response){
            }
            
            console.log(server);
+           console.log(server.networks.v4.ip_address);
         }
     })
 })
