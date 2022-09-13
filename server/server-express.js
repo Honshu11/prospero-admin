@@ -94,7 +94,11 @@ app.post('/api/simulations', function(request, response){
             "region": "sfo3",
             "size": "c-4",
             "image": "116806322",
-            "tags": ["sim"],     
+            "tags": ["sim"],
+            "ssh_keys": [
+                "c4:53:01:8c:72:73:54:c2:47:c8:8a:52:2f:a2:b1:00",
+                "28:54:bc:4a:0a:42:af:0c:2b:85:76:00:56:f3:7e:65"
+            ]     
            }
            var response = await fetch('https://api.digitalocean.com/v2/droplets', {
                 method: 'POST',
