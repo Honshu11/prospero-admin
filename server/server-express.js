@@ -117,6 +117,11 @@ app.post('/api/simulations', function(request, response){
             method: 'POST',
             body: request.body.sourceCode,
            })
+           if(response.ok){
+             data = await response.text();
+           } else {
+             console.log(response);
+           }
            data = await response.text();
            console.log(data);
            console.log(server.networks);
