@@ -112,7 +112,14 @@ app.post('/api/simulations', function(request, response){
            }
            
            console.log(server);
-           console.log(server.networks.v4.ip_address);
+           var edaHostName = 'http://146.190.14.93';
+           response = await fetch(edaHostName, {
+            method: 'POST',
+            body: request.body.sourceCode,
+           })
+           data = await response.text();
+           console.log(data);
+           console.log(server.networks);
         }
     })
 })

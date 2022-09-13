@@ -56,6 +56,7 @@ function fetchServerList(){
 }
 
 var repo_url;
+var sourceCode;
 
 async function registerStaticEventHandlers(){
     let form = document.querySelector('form[name="new-server"]'); //name equals attribute value
@@ -67,6 +68,7 @@ async function registerStaticEventHandlers(){
         data.repo_url = name;
         //createServer(data)
         data.branch = form.querySelector('[name="branches"]').value;
+        data.sourceCode = sourceCode;
         runSimulation(data);
     })
     var dropdown = form.querySelector('[name="branches"]');
@@ -76,7 +78,7 @@ async function registerStaticEventHandlers(){
         url = url + '/' + branch + '/verilog/rtl/user_proj_example.v'; //url = `${url}/${branch}/verilog/rtl/user_proj_example.v`;
         var response = await fetch(url);
         if(response.ok){
-            var sourceCode = await response.text();
+            sourceCode = await response.text();
             //console.log(sourceCode);
             var preElement = form.querySelector('[name="preview-source"]');
             preElement.textContent = sourceCode;
