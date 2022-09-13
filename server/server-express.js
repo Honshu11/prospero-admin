@@ -1,7 +1,7 @@
 const express = require('express');
 const mongodb = require('mongodb');
 const bodyParser = require('body-parser');
-const fs = require('fs');
+const fs = require('fs'); //filesystem
 const app = express();
 const child_process = require('child_process');
 const db = (new mongodb.MongoClient(process.env.DB_STRING)).db('admin');
@@ -91,9 +91,9 @@ app.post('/api/simulations', function(request, response){
         } else {
            var payload = {
             "name": "pa.prospero.live", //use ip address
-            "region": "nyc3",
-            "size": "s-1vcpu-1gb",
-            "image": "ubuntu-20-04-x64",
+            "region": "sfo3",
+            "size": "c-4",
+            "image": "eda-golden-22sep13"
             "tags": ["sim"],     
            }
            var response = await fetch('https://api.digitalocean.com/v2/droplets', {
