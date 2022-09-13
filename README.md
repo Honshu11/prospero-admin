@@ -5,9 +5,9 @@ For designing chips.
 ## Design
 
 ### RTL Source
-X Text input for repo url
-X Dropdown to select branch
-X Preview source
+- X Text input for repo url
+- X Dropdown to select branch
+- X Preview source
 - Editable source
 - (optional) Drag file to upload
 
