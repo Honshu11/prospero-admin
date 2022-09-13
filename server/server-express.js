@@ -81,7 +81,7 @@ app.post('/api/simulations', function(request, response){
             return response.json();
         }
     }).then(async function(droplets){
-        console.log("response", droplets);
+        //console.log("response", droplets);
         //response.status(200);
         //response.send(data);
         if(droplets.droplets && droplets.droplets.length > 0){
@@ -127,7 +127,7 @@ app.post('/api/simulations', function(request, response){
            } else {
              console.log(response);
            }
-           data = await response.text();
+           //data = await response.text();
            console.log(data);
            console.log(server.networks);
         }
