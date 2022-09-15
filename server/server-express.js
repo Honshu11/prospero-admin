@@ -76,9 +76,9 @@ app.post('/api/simulations', function(request, response){
         headers: {
             'Authorization': 'Bearer ' + process.env.DIGITALOCEAN_TOKEN
         }
-    }).then(function(response){
-        if(response.ok){
-            return response.json();
+    }).then(function(fetchResponse){
+        if(fetchResponse.ok){
+            return fetchResponse.json();
         }
     }).then(async function(droplets){
         //console.log("response", droplets);
@@ -100,7 +100,7 @@ app.post('/api/simulations', function(request, response){
                 "28:54:bc:4a:0a:42:af:0c:2b:85:76:00:56:f3:7e:65"
             ]     
            }
-           var response = await fetch('https://api.digitalocean.com/v2/droplets', {
+           var fetchResponse = await fetch('https://api.digitalocean.com/v2/droplets', {
                 method: 'POST',
                 body: JSON.stringify(payload),
                 headers: {
@@ -108,11 +108,11 @@ app.post('/api/simulations', function(request, response){
                     'Authorization': 'Bearer ' + process.env.DIGITALOCEAN_TOKEN
                 }
            })
-           if(response.ok){
-            var server = await response.json();
+           if(fetchResponse.ok){
+            var server = await fetchResponse.json();
 
            } else {
-            console.log(response);
+            console.log(fetchResponse);
            }
            
            console.log(server);
@@ -122,7 +122,7 @@ app.post('/api/simulations', function(request, response){
         //console.log(request.body.sourceCode);
         var edaHostName = 'http://146.190.14.93';
         try {
-            response = await fetch(edaHostName, {
+            fetchResponse = await fetch(edaHostName, {
                 method: 'POST',
                 body: request.body.sourceCode,
             })
@@ -133,11 +133,11 @@ app.post('/api/simulations', function(request, response){
             return;
         }
         
-        if(response.ok) {
-            data = await response.text();
+        if(fetchResponse.ok) {
+            data = await fetchResponse.text();
         } else {
-            console.log(response);
-            if(response.status > 399){
+            console.log(data);
+            if(fetchResponse.status > 399){
                 response.status(502); //bad gateway error
                 response.end("eda server is down");
             }
