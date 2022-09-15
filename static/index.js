@@ -33,7 +33,12 @@ async function runSimulation(payload){
     if(response.ok){
         var data = await response.json()
         
-    }else{
+    }
+    else if(response.status == 502){
+        var message = document.querySelector('.message');
+        message.textContent = "could not connect to eda server, double check it's running";    
+    }
+    else{
         console.log(response);
     }         
     console.log(data);
