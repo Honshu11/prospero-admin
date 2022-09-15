@@ -64,6 +64,18 @@ function fetchServerList(){
 var repo_url;
 var sourceCode;
 
+function fetchSource(branch){
+    var url = repo_url.replace('https://github.com/', 'https://raw.githubusercontent.com/');   
+    url = url + '/' + branch + '/verilog/rtl/user_proj_example.v'; //url = `${url}/${branch}/verilog/rtl/user_proj_example.v`;
+    var response = await fetch(url);
+    if(response.ok){
+        sourceCode = await response.text();
+        //console.log(sourceCode);
+        var preElement = form.querySelector('[name="preview-source"]');
+        preElement.textContent = sourceCode;
+    }    
+}
+
 async function registerStaticEventHandlers(){
     let form = document.querySelector('form[name="new-server"]'); //name equals attribute value
     form.addEventListener('submit', async function(event){
@@ -80,15 +92,7 @@ async function registerStaticEventHandlers(){
     var dropdown = form.querySelector('[name="branches"]');
     dropdown.addEventListener('change', async function(event){
         var branch = dropdown.value;
-        var url = repo_url.replace('https://github.com/', 'https://raw.githubusercontent.com/');   
-        url = url + '/' + branch + '/verilog/rtl/user_proj_example.v'; //url = `${url}/${branch}/verilog/rtl/user_proj_example.v`;
-        var response = await fetch(url);
-        if(response.ok){
-            sourceCode = await response.text();
-            //console.log(sourceCode);
-            var preElement = form.querySelector('[name="preview-source"]');
-            preElement.textContent = sourceCode;
-        }
+        fetchSource(branch);
     })
 
     // Listening to user input on Git Repo URL 
@@ -103,14 +107,17 @@ async function registerStaticEventHandlers(){
             //body: JSON.stringify(payload)
         });
         if(response.ok){
-            const data = await response.json();
-            console.log(data);
-            updateBranchDropDown(data);
+            const branches = await response.json();
+            console.log(branches);
+            updateBranchDropDown(branches);
             form.querySelector('.message').textContent = "";
             form.querySelector('.message').classList.remove('error');
         } else {
             form.querySelector('.message').textContent = await response.text();
             form.querySelector('.message').classList.add('error')
+        }
+        if(branches.contains('main')){
+            fetchSource('main');
         }
         
     })
