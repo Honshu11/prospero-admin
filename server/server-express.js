@@ -140,10 +140,13 @@ app.post('/api/simulations', function(request, response){
             if(fetchResponse.status > 399){
                 response.status(502); //bad gateway error
                 response.end("eda server is down");
+                return;
             }
         }
         //data = await response.text();
         console.log(data);
+        response.status(200);
+        response.end(data);
         //console.log(server.networks);
         
     })
