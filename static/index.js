@@ -107,7 +107,7 @@ async function registerStaticEventHandlers(){
             //body: JSON.stringify(payload)
         });
         if(response.ok){
-            const branches = await response.json();
+            var branches = await response.json();
             console.log(branches);
             updateBranchDropDown(branches);
             form.querySelector('.message').textContent = "";
