@@ -118,6 +118,7 @@ async function registerStaticEventHandlers(){
         }
         if(branches.includes('main')){
             fetchSource('main');
+            dropdown.querySelector('[value="main"]').setAttribute('selected', true);
         }
         
     })
@@ -147,6 +148,7 @@ function updateBranchDropDown(branches){
     branches.forEach(function(branch){
         var option = document.createElement('option');
         option.textContent = branch;
+        option.setAttribute('value', branch);
         dropdown.appendChild(option);
         //console.log(form, option, dropdown);
     })
