@@ -71,7 +71,7 @@ async function fetchSource(branch){
     if(response.ok){
         sourceCode = await response.text();
         //console.log(sourceCode);
-        var preElement = form.querySelector('[name="preview-source"]');
+        var preElement = document.querySelector('[name="preview-source"]');
         preElement.textContent = sourceCode;
     }    
 }
