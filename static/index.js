@@ -116,7 +116,7 @@ async function registerStaticEventHandlers(){
             form.querySelector('.message').textContent = await response.text();
             form.querySelector('.message').classList.add('error')
         }
-        if(branches.contains('main')){
+        if(branches.includes('main')){
             fetchSource('main');
         }
         
