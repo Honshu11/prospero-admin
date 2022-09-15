@@ -64,7 +64,7 @@ function fetchServerList(){
 var repo_url;
 var sourceCode;
 
-function fetchSource(branch){
+async function fetchSource(branch){
     var url = repo_url.replace('https://github.com/', 'https://raw.githubusercontent.com/');   
     url = url + '/' + branch + '/verilog/rtl/user_proj_example.v'; //url = `${url}/${branch}/verilog/rtl/user_proj_example.v`;
     var response = await fetch(url);
