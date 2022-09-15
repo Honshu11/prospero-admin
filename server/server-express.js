@@ -121,11 +121,19 @@ app.post('/api/simulations', function(request, response){
 
         //console.log(request.body.sourceCode);
         var edaHostName = 'http://146.190.14.93';
-        response = await fetch(edaHostName, {
-        method: 'POST',
-        body: request.body.sourceCode,
-        })
-        if(response.ok){
+        try {
+            response = await fetch(edaHostName, {
+                method: 'POST',
+                body: request.body.sourceCode,
+            })
+        }
+        catch(error) {
+            response.status(502);
+            response.end("eda server is down"); 
+            return;
+        }
+        
+        if(response.ok) {
             data = await response.text();
         } else {
             console.log(response);
