@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# In node.js create tmp folder and write .v file into folder
+# then cd into tmp folder
+# then run this script
+
+#echo "Before iverilog"
+iverilog source.v
+#echo "After iverilog"
+
+# the stdout should be based back to client via http response
