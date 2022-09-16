@@ -12,7 +12,7 @@ require('isomorphic-fetch');
 
 
 app.use(bodyParser.json({type: '*/*'}));
-
+app.use('/static', express.static('static'));
 //ROUTES
 
 app.get('/:filename', function(request, response){ //gets all static resource
