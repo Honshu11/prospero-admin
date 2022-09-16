@@ -15,15 +15,15 @@ app.use(bodyParser.json({type: '*/*'}));
 app.use('/static', express.static('static'));
 //ROUTES
 
-app.get('/:filename', function(request, response){ //gets all static resource
-    try{
-        response.send(fs.readFileSync('../static/' + request.params.filename).toString());
-    }
-    catch(error){
-        response.sendStatus(404);
-        console.log("404 static resource not found:" + error);
-    }
-});
+// app.get('/:filename', function(request, response){ //gets all static resource
+//     try{
+//         response.send(fs.readFileSync('../static/' + request.params.filename).toString());
+//     }
+//     catch(error){
+//         response.sendStatus(404);
+//         console.log("404 static resource not found:" + error);
+//     }
+// });
 
 
 app.get('/', function(request, response){
