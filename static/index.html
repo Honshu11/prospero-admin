@@ -9,62 +9,54 @@
     <!--<link rel="stylesheet" type="text/css" href="theme.css"> -->
     <title>Propsero Admin Tool</title>
 </head>
-<body class="container">
-    <header class="header">
+<body>
         <h1>Prospero admin tool</h1>
-    </header>
-
-    <div class="form-container">
+    
         <form action="" class="main-form" name="new-server">
-            <div class="form-content">
-                <ul>
-                    <label for="repo_url">Git Repo URL:
-                        <input type="text" name="repo_url" required>
-                    </label>
-                    
-                    <!--
-                    <label for="small-db">Small Server - $10/pm
-                        <input type="radio" id="small-db" name="small-db">
-                    </label>
-                    
-                    <label for="medium-db">Medium Server - $40/pm
-                        <input type="radio" id="medium-db" name="medium-db">
-                    </label>
-                    
-                    <label for="large-db">Large Server $80/pm
-                        <input type="radio" name="large-db" id="large-db">
-                    </label>
-                    -->
-                    <br>
-                    
-                    <label for="server">Option</label>
-                    <select name="branches" id="server">  
-                    </select>
+            
+            <ul>
+                <label for="repo_url">Git Repo URL:
+                    <input type="text" name="repo_url" required>
+                </label>
+                
+                <!--
+                <label for="small-db">Small Server - $10/pm
+                    <input type="radio" id="small-db" name="small-db">
+                </label>
+                
+                <label for="medium-db">Medium Server - $40/pm
+                    <input type="radio" id="medium-db" name="medium-db">
+                </label>
+                
+                <label for="large-db">Large Server $80/pm
+                    <input type="radio" name="large-db" id="large-db">
+                </label>
+                -->
+                <br>
+                
+                <label for="server">Option</label>
+                <select name="branches" id="server">  
+                </select>
 
-                    <pre name="preview-source" class="preview" style="max-width: 500px; max-height: 500px; overflow: scroll; outline: 1px grey solid;">
-                    </pre>
-                    
-                    <br>
-                    <!--
-                    <p for="comments">Comments:</p>
-                    <textarea name="comments" id="comments" cols="30" rows="20"></textarea>
-                    -->
-                    <p class="message"></p>
-                    
-                    <button type="submit" id="run-sim">Run Simulation</button>
-                    <!--hello from html world-->
-                </ul>
-            </div>
+                <pre name="preview-source" class="preview" style=>
+                </pre>
+                
+                <br>
+                <!--
+                <p for="comments">Comments:</p>
+                <textarea name="comments" id="comments" cols="30" rows="20"></textarea>
+                -->
+                <p class="message"></p>
+                
+                <button type="submit" id="run-sim">Run Simulation</button>
+                <!--hello from html world-->
+            </ul>
+            
         </form>
-    </div>
     <pre class="output"></pre>
-    <div id="server-list">
-        
-    </div>
+    <div id="server-list"></div>
     <h2>Droplet List</h2>
-    <div id="droplet-list">
-        
-    </div>
+    <table id="droplet-list"></table>
     
 <script src="static/index.js"></script>
 </body>

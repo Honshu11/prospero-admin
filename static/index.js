@@ -156,5 +156,5 @@ function updateBranchDropDown(branches){
 }
 
 registerStaticEventHandlers();
-fetchServerList();
+//fetchServerList();
 fetchDropletList();
