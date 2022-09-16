@@ -1,9 +1,13 @@
 
-hello world
 
 # EDA Tool
 
 For designing chips.
+
+## Setup Instructions
+
+To set up the EDA server, install node and run "node server.js" from EDA folder.
+Server IP address is hard coded on first line in server-express.js
 
 ## Design
 
